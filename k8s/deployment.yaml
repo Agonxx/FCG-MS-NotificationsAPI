@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notificationsapi
+  labels:
+    app: notificationsapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notificationsapi
+  template:
+    metadata:
+      labels:
+        app: notificationsapi
+    spec:
+      containers:
+        - name: notificationsapi
+          image: notificationsapi:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+            - name: RabbitMQ__Host
+              valueFrom:
+                configMapKeyRef:
+                  name: notificationsapi-config
+                  key: rabbitmq-host
+            - name: RabbitMQ__VHost
+              valueFrom:
+                configMapKeyRef:
+                  name: notificationsapi-config
+                  key: rabbitmq-vhost
+            - name: RabbitMQ__Username
+              valueFrom:
+                secretKeyRef:
+                  name: notificationsapi-secret
+                  key: rabbitmq-username
+            - name: RabbitMQ__Password
+              valueFrom:
+                secretKeyRef:
+                  name: notificationsapi-secret
+                  key: rabbitmq-password
