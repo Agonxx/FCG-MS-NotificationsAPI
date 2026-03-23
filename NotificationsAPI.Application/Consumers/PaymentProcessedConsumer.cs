@@ -1,8 +1,9 @@
 using MassTransit;
+using Microsoft.Extensions.Logging;
 using NotificationsAPI.Domain.Interfaces;
 using Shared.Contracts.Events;
 
-namespace NotificationsAPI.Api.Consumers
+namespace NotificationsAPI.Application.Consumers
 {
     public class PaymentProcessedConsumer : IConsumer<PaymentProcessedEvent>
     {

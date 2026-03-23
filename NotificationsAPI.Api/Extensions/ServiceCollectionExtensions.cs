@@ -1,6 +1,6 @@
 using MassTransit;
 using Microsoft.OpenApi.Models;
-using NotificationsAPI.Api.Consumers;
+using NotificationsAPI.Application.Consumers;
 using NotificationsAPI.Application.Services;
 using NotificationsAPI.Domain.Interfaces;
 

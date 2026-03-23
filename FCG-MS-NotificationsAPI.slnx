@@ -1,4 +1,6 @@
 <Solution>
   <Project Path="NotificationsAPI.Api/NotificationsAPI.Api.csproj" />
   <Project Path="NotificationsAPI.Application/NotificationsAPI.Application.csproj" />
+  <Project Path="NotificationsAPI.Domain/NotificationsAPI.Domain.csproj" />
+  <Project Path="NotificationsAPI.Tests/NotificationsAPI.Tests.csproj" />
 </Solution>

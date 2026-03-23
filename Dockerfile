@@ -6,6 +6,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 COPY ["NotificationsAPI.Api/NotificationsAPI.Api.csproj", "NotificationsAPI.Api/"]
 COPY ["NotificationsAPI.Application/NotificationsAPI.Application.csproj", "NotificationsAPI.Application/"]
+COPY ["NotificationsAPI.Domain/NotificationsAPI.Domain.csproj", "NotificationsAPI.Domain/"]
 RUN dotnet restore "NotificationsAPI.Api/NotificationsAPI.Api.csproj"
 COPY . .
 WORKDIR "/src/NotificationsAPI.Api"
